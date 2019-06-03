@@ -1,11 +1,13 @@
 .dynamic-table-container {
-  overflow-x: auto;
+  &[data-has-pagination="true"] {
+    overflow-x: auto; // only needed if pagination element is visible
 
-  // remove when fix lands
-  // https://bugs.chromium.org/p/chromium/issues/detail?id=914844#c36
-  body[data-platform^="Mac"] & {
-    padding-bottom: 10px; // workaround for Mac browser's scrollbar obscuring content
-    margin-bottom: -10px; // compensation for above
+    // remove when fix lands
+    // https://bugs.chromium.org/p/chromium/issues/detail?id=914844#c36
+    body[data-platform^="Mac"] & {
+      padding-bottom: 10px; // workaround for Mac browser's scrollbar obscuring content
+      margin-bottom: -10px; // compensation for above
+    }
   }
 
   th {

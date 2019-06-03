@@ -99,6 +99,12 @@ class DynamicTablePaginatorAdapter {
     return this.$ctrl.preparedRows.length;
   }
 
+  // remove when fix lands
+  // https://bugs.chromium.org/p/chromium/issues/detail?id=914844#c36
+  get hasPagination() {
+    return this.totalCount > this.itemsPerPage; // same condition as in Paginator.jsx
+  }
+
   setPage(page) {
     this.$ctrl.onPageChanged(page);
   }
